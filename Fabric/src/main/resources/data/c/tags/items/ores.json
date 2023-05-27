@@ -1,0 +1,7 @@
+{
+	"replace": false,
+	"values": [
+		"overworld_quartz_ore:quartz_ore",
+		"overworld_quartz_ore:deepslate_quartz_ore"
+	]
+}

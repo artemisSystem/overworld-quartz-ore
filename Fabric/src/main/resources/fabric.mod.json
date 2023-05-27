@@ -11,7 +11,7 @@
 		"sources": "https://github.com/artemisSystem/overworld-quartz-ore"
 	},
 	"license": "CC0-1.0",
-	"icon": "assets/overworld_quartz_ore/icon.png",
+	"icon": "icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [

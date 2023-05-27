@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "overworld_quartz_ore:block/deepslate_quartz_ore"
+  }
+}

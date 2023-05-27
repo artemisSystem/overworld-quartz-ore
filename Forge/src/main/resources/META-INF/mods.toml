@@ -5,7 +5,7 @@ license="CC0-1.0"
 	modId="overworld_quartz_ore"
 	version="${file.jarVersion}"
 	displayName="Overworld Quartz Ore"
-	logoFile="assets/overworld_quartz_ore/icon.png"
+	logoFile="icon.png"
 	authors="artemis"
 	description="Adds quartz ore to the overworld"
 [[dependencies.overworld_quartz_ore]]
