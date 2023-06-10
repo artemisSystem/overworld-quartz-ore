@@ -6,9 +6,9 @@ its pretty simple
 
 - Spawn rates are the same as in the nether (uniform distribution covering
 the entire world except top and bottom 10 blocks). If you want to change it,
-override [the placed feature](Common/src/main/resources/data/overworld_quartz_ore/worldgen/placed_feature/ore_quartz.json)
+override [the placed feature](Xplat/src/main/resources/data/overworld_quartz_ore/worldgen/placed_feature/ore_quartz.json)
 to change where and how often it spawns, and override
-[the configured feature](Common/src/main/resources/data/overworld_quartz_ore/worldgen/configured_feature/ore_quartz.json)
+[the configured feature](Xplat/src/main/resources/data/overworld_quartz_ore/worldgen/configured_feature/ore_quartz.json)
 to change the blob size.
 - Drops same amount of xp and quartz as nether quartz ore
 - Renames the "Nether Quartz" item to "Quartz" (`en_us` only)

@@ -13,4 +13,4 @@ pluginManagement {
 }
 
 rootProject.name = 'Overworld Quartz Ore'
-include("Common", "Fabric", "Forge")
+include("Xplat", "Fabric", "Forge")
