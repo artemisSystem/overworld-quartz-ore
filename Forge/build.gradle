@@ -1,29 +1,42 @@
 buildscript {
 	repositories {
-		maven { url = 'https://maven.minecraftforge.net' }
-		mavenCentral()
-	}
-	dependencies {
-		classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.1.+', changing: true
+		repo it, "https://maven.minecraftforge.net", "net.minecraftforge"
+		repo it, "https://maven.parchmentmc.org",
+			"org.parchmentmc.librarian.forgegradle"
 	}
 }
-apply plugin: 'java'
-apply plugin: 'net.minecraftforge.gradle'
-apply plugin: 'eclipse'
-apply plugin: 'maven-publish'
+
+plugins {
+	id "java"
+	id "net.minecraftforge.gradle" version "6.0.+"
+	id "org.parchmentmc.librarian.forgegradle" version "1.+"
+}
 
 archivesBaseName = "${mod_id}-forge-${minecraft_version}"
 
+dependencies {
+	minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
+	compileOnly project(":Xplat")
+}
+
+def run(r, String name) {
+	r.workingDirectory project.file("../run")
+	r.ideaModule "${rootProject.name}.${project.name}.main"
+	r.taskName name
+	r.property "mixin.env.remapRefMap", "true"
+	r.property "mixin.env.refMapRemappingFile",
+		"${projectDir}/build/createSrgToMcp/output.srg"
+}
+
 minecraft {
-	mappings channel: 'official', version: minecraft_version
+	var parchment_components = parchment_version.split(":")
+	mappings channel: "parchment", version:
+		"${parchment_components[0]}-${parchment_components[1]}-${minecraft_version}"
 
 	runs {
 		client {
-			workingDirectory project.file('run')
-			ideaModule "${rootProject.name}.${project.name}.main"
-			taskName 'Client'
-			property 'mixin.env.remapRefMap', 'true'
-			property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
+			run it, "Client"
+			property "fml.earlyprogresswindow", "false"
 			mods {
 				modClientRun {
 					source sourceSets.main
@@ -33,11 +46,7 @@ minecraft {
 		}
 
 		server {
-			workingDirectory project.file('run')
-			ideaModule "${rootProject.name}.${project.name}.main"
-			taskName 'Server'
-			property 'mixin.env.remapRefMap', 'true'
-			property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
+			run it, "Server"
 			mods {
 				modServerRun {
 					source sourceSets.main
@@ -45,29 +54,7 @@ minecraft {
 				}
 			}
 		}
-
-		data {
-			workingDirectory project.file('run')
-			ideaModule "${rootProject.name}.${project.name}.main"
-			args '--mod', mod_id, '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
-			taskName 'Data'
-			property 'mixin.env.remapRefMap', 'true'
-			property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
-			mods {
-				modDataRun {
-					source sourceSets.main
-					source project(":Xplat").sourceSets.main
-				}
-			}
-		}
 	}
-}
-
-sourceSets.main.resources.srcDir 'src/generated/resources'
-
-dependencies {
-	minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
-	compileOnly project(":Xplat")
 }
 
 tasks.withType(JavaCompile) {
@@ -78,8 +65,7 @@ processResources {
 	from project(":Xplat").sourceSets.main.resources
 }
 
-
-jar.finalizedBy('reobfJar')
+jar.finalizedBy("reobfJar")
 
 publishing {
 	publications {
