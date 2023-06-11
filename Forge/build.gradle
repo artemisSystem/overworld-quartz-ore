@@ -1,6 +1,6 @@
 buildscript {
 	repositories {
-		repo it, "https://maven.minecraftforge.net", "net.minecraftforge"
+		repo it, "https://maven.minecraftforge.net"
 		repo it, "https://maven.parchmentmc.org",
 			"org.parchmentmc.librarian.forgegradle"
 	}
