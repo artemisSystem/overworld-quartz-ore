@@ -9,6 +9,8 @@ def repo(r, String repoURL, String... groups) {
 
 subprojects {
 	apply plugin: "java"
+	apply plugin: "idea"
+	apply plugin: "maven-publish"
 
 	java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 	java.withSourcesJar()

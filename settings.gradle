@@ -1,6 +1,7 @@
 pluginManagement {
 	repositories {
 		gradlePluginPortal()
+		// For fabric loom and forgegradle
 		maven { url = "https://repo.spongepowered.org/repository/maven-public/" }
 	}
 }
