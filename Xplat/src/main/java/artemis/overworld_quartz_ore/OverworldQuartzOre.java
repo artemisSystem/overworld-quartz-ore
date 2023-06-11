@@ -1,5 +1,7 @@
 package artemis.overworld_quartz_ore;
 
+import java.util.HashMap;
+import java.util.Map;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
@@ -15,9 +17,6 @@ import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.MaterialColor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import java.util.HashMap;
-import java.util.Map;
 
 public class OverworldQuartzOre {
 	public static final String MOD_ID = "overworld_quartz_ore";

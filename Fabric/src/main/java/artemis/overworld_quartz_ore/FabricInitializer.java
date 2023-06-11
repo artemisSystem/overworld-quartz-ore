@@ -1,17 +1,15 @@
 package artemis.overworld_quartz_ore;
 
+import java.util.function.Predicate;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectionContext;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
-import net.fabricmc.fabric.api.client.item.v1.ItemTooltipCallback;
 import net.minecraft.core.Registry;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.levelgen.GenerationStep;
-
-import java.util.function.Predicate;
 
 public class FabricInitializer implements ModInitializer {
 	@Override

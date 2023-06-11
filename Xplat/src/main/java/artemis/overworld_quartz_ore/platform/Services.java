@@ -2,7 +2,6 @@ package artemis.overworld_quartz_ore.platform;
 
 import artemis.overworld_quartz_ore.OverworldQuartzOre;
 import artemis.overworld_quartz_ore.platform.services.IPlatformHelper;
-
 import java.util.ServiceLoader;
 
 public class Services {
